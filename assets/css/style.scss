@@ -77,6 +77,18 @@ input[type=checkbox]{
     }
 }
 
+/* Chrome, Safari, Edge, Opera */
+.no-arrow::-webkit-outer-spin-button,
+.no-arrow::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.no-arrow[type=number] {
+  -moz-appearance: textfield;
+}
+
 body{
     overflow-x: hidden;
 }
@@ -183,9 +195,28 @@ button,a{
 .ema-shadow{
     &-hover:hover{
         box-shadow: 15px 25px 50px -20px rgba(255, 0, 0, 0.16);
-border-radius: 25px;
     }
 }
+//ContactModal
+.contact-modal{
+    form input,form textarea{
+        border: none !important;
+        border-bottom: 2px solid #d8d8d8 !important;
+        box-shadow: none !important;
+        border-radius: 0px !important;
+        padding: 0.6em 0px !important;
+        &:focus{
+            border-color: $prm !important;
+            padding: 0.6em 0.9em !important;
+            //box-shadow: 20px 10px 40px -15px rgba(43, 10, 10, 0.514) !important;
+        }
+        &:not(:placeholder-shown){
+            border-color: $prm !important;
+        }
+    }
+    form textarea{width:100%}
+}
+
 //Scroll top
 #scrolltop {
     display: block;
@@ -437,14 +468,20 @@ header{
                         position: relative;
                         text-decoration: none;
                         color: currentColor;
-                        &:hover::before{
-                            content: '';
-                            position: absolute;
-                            background-color: $prm;
-                            height: 10px;
-                            width: 100%;
-                            bottom: 0;
-                            z-index: -1;
+                        &:hover,&.active{
+                            // background: linear-gradient(180deg, $dark 55%, #FFF 45%);
+                            // -webkit-background-clip: text;
+                            // -webkit-text-fill-color: transparent;
+                            text-shadow: 1px 1px 0px rgb(255, 255, 255);
+                            &::before{
+                                content: '';
+                                position: absolute;
+                                background-color: $prm;
+                                height: 10px;
+                                width: 100%;
+                                bottom: 0;
+                                z-index: -1;
+                            }
                         }
                     }
                 }
@@ -536,6 +573,15 @@ header{
 //Service
 .service{
     &-item{
+        border-radius: 25px;
+        p{
+            overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 4; /* number of lines to show */
+                        line-clamp: 4; 
+                -webkit-box-orient: vertical;
+        }
         @media only screen and (max-width: $w-sm) {
             p{
                 overflow: hidden;
@@ -613,5 +659,29 @@ header{
             img{transform: scale(1.03);}
             h3{color: $prm;}
         }
+    }
+}
+
+//about
+//content
+.about-content{
+    h2,h3{
+        position: relative;
+        z-index: 1;
+        &::before{
+            content: '#';
+            width: 3em;
+            height: 20px;
+            background-color: $prm;
+            color: #fff;
+            margin-right: 0.3em;
+            padding: 0px 0.1em;
+            bottom: 0;
+            z-index: -1;
+        }
+    }
+    li{
+        line-height: 27px;
+        margin: 0.4em 0px;
     }
 }

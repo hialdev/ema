@@ -35,6 +35,18 @@ input[type=checkbox] {
   color: #BB2030;
 }
 
+/* Chrome, Safari, Edge, Opera */
+.no-arrow::-webkit-outer-spin-button,
+.no-arrow::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.no-arrow[type=number] {
+  -moz-appearance: textfield;
+}
+
 body {
   overflow-x: hidden;
 }
@@ -163,7 +175,28 @@ button, a {
 .ema-shadow-hover:hover {
   -webkit-box-shadow: 15px 25px 50px -20px rgba(255, 0, 0, 0.16);
           box-shadow: 15px 25px 50px -20px rgba(255, 0, 0, 0.16);
-  border-radius: 25px;
+}
+
+.contact-modal form input, .contact-modal form textarea {
+  border: none !important;
+  border-bottom: 2px solid #d8d8d8 !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  border-radius: 0px !important;
+  padding: 0.6em 0px !important;
+}
+
+.contact-modal form input:focus, .contact-modal form textarea:focus {
+  border-color: #BB2030 !important;
+  padding: 0.6em 0.9em !important;
+}
+
+.contact-modal form input:not(:placeholder-shown), .contact-modal form textarea:not(:placeholder-shown) {
+  border-color: #BB2030 !important;
+}
+
+.contact-modal form textarea {
+  width: 100%;
 }
 
 #scrolltop {
@@ -475,7 +508,11 @@ header {
   color: currentColor;
 }
 
-.header nav .menu ul li a:hover::before {
+.header nav .menu ul li a:hover, .header nav .menu ul li a.active {
+  text-shadow: 1px 1px 0px white;
+}
+
+.header nav .menu ul li a:hover::before, .header nav .menu ul li a.active::before {
   content: '';
   position: absolute;
   background-color: #BB2030;
@@ -590,6 +627,20 @@ header {
           filter: drop-shadow(3px 3px 2px #36363663);
 }
 
+.service-item {
+  border-radius: 25px;
+}
+
+.service-item p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  /* number of lines to show */
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
 @media only screen and (max-width: 760px) {
   .service-item p {
     overflow: hidden;
@@ -683,5 +734,27 @@ header {
 
 .post-item:hover a h3 {
   color: #BB2030;
+}
+
+.about-content h2, .about-content h3 {
+  position: relative;
+  z-index: 1;
+}
+
+.about-content h2::before, .about-content h3::before {
+  content: '#';
+  width: 3em;
+  height: 20px;
+  background-color: #BB2030;
+  color: #fff;
+  margin-right: 0.3em;
+  padding: 0px 0.1em;
+  bottom: 0;
+  z-index: -1;
+}
+
+.about-content li {
+  line-height: 27px;
+  margin: 0.4em 0px;
 }
 /*# sourceMappingURL=style.css.map */
