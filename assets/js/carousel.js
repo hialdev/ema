@@ -102,3 +102,23 @@ $('.post').owlCarousel({
         }
     }
 })
+
+$('.img-hero').owlCarousel({
+    center: true,
+    items:2,
+    loop:true,
+    autoplay:true,
+    autoplayTimeout:4000,
+    autoplayHoverPause:true,
+    dots:false,
+    margin:20,
+    responsive:{
+        320:{
+            items:1,
+            dots:true,
+        },
+        600:{
+            items:2
+        }
+    }
+})

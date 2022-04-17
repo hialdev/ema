@@ -21,7 +21,7 @@ $txt:14px;
 $txt-sm:12px;
 
 //LG
-$h1-w2:72px;
+$h1-w2:42px;
 $h2-w2:52px;
 $h3-w2:18px;
 $txt-w2:14px;
@@ -316,6 +316,16 @@ button,a{
         }
     }
 }
+
+.content>{
+    img{
+        width: 100% !important;
+        display: block !important;
+        border-radius: 20px !important;
+        box-shadow: 20px 30px 50px -10px rgba(255, 0, 0, 0.05);
+        margin: 1.9em 0px;
+    }
+}
 /* ---------------------------------
 end Reset
 --------------------------------- */
@@ -540,6 +550,16 @@ header{
         transform: scale(1.1);
     }
 }
+.search-input{
+    border-radius: 90px !important;
+    padding: 0.6em 1em;
+    border: none !important;
+    background-color: $light;
+    box-shadow: 0px 4px 50px -15px rgba(63, 13, 13, 0.16) !important;
+}
+.btn-search{
+    border-radius: 99px !important;
+}
 //--------------------------------------
 //UI
 //--------------------------------------
@@ -610,7 +630,16 @@ header{
         border-top-left-radius: 20px;
     }
 }
-
+.porto-ctg{
+    padding: 0.3em 0.5em;
+    border-radius: 5px;
+    background-color: #ff000023;
+    text-decoration: none;
+    &:hover,&.active{
+        color: #fff;
+        background-color: $prm;
+    }
+}
 .text-primary{
     color: $prm !important;
 }
